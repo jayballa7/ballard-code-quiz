@@ -9,10 +9,14 @@ footer {
     text-align:center;
 }
 
-#demo {
+#intro {
     text-align: center;
     }
 
 .hide {
     display:none;
     }
+
+.nav-item {
+    color:white;
+}

@@ -1,5 +1,6 @@
 var button = document.getElementById("start-quiz");
 button.addEventListener("click", function(){
+  counterClock();
   insertContent();
   hideBtn();
 });
@@ -8,17 +9,30 @@ function hideBtn() {
   document.getElementById('intro').classList.add('hide');
   };
 
-function insertContent () {
-  var node = document.createElement("div");
-  for (var i = 0; i < questions.length; i++) {
-    var textNode = document.createTextNode(questions[i].title);
-    node.appendChild(textNode); 
-    document.getElementById("show-question").appendChild(node);
-  
+  function insertContent() {
+    var quizQuestions = document.getElementById("show-question");
+    var quizChoices = document.getElementsByClassName("question");
+    for (var i = 0; i < questions.length; i++) {
+      quizQuestions.innerHTML += ('<div class = "question">' + questions[i].title + '</div>');
+      for (var j = 0; j < questions[i].choices.length; j++) {
+        quizChoices[i].innerHTML += '<button>' + questions[i].choices[j] + '</button>';
+      };
+    };
   };
-};
 
-
+function counterClock() {
+  var clock = document.getElementById("display-countdown");
+  var counter = 75;
+  var timer = setInterval(countdown, 1000);
+  function countdown() {
+    if(counter < 0){
+    clearInterval(timer);
+   } else {	
+    clock.innerHTML = "Time: " + counter + " seconds left";
+    counter--;
+   };
+  };
+}
 
 
 /*function insertContent(){
@@ -35,14 +49,12 @@ function insertContent () {
   }
 
   ​
-  function showHideQuiz(evt){
+  function showHideQuiz(event){
     question1 = document.getElementsByClassName(question1);
     if(document.getElementsByClassName(question1)){
       question1.style.display = "block";
     } else {
       //style.display = "none";
     }
-    evt.preventDefault();
-  }
-  ​
-  insertContent();*/
+    event.preventDefault();
+  } */
