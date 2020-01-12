@@ -9,14 +9,11 @@ footer {
     text-align:center;
 }
 
-#intro {
-    text-align: center;
+.btn {
+    width: 50%;
+    margin: auto;
     }
 
-.hide {
-    display:none;
-    }
-
-.nav-item {
-    color:white;
+#display-countdown {
+    color: white;
 }

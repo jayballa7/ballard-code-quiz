@@ -1,60 +1,83 @@
+var questionsEl = document.getElementById("show-question");
+var counter = 50;
+        
+function start() {
+            //Start clock
+           var timer = setInterval("countdown()", 1000);
+}
+function countdown(){
+            if(counter > 0){
+                counter--;
+                document.getElementById('display-countdown').innerHTML = "Time Remaining: " + counter + " seconds";
+            }
+            else {
+                //Stop clock
+                clearInterval(timer);
+            }
+  };
+
+
+
+/*function counterClock() {
+  var timer = setInterval(function(){
+    counter--;
+    countdown.textContent = "Time Remaining: " + counter + " seconds";
+    if(counter === 0){
+        clearInterval(timer);
+        //document.querySelector('.Score').style.display='block';
+        //document.querySelector(".Time").style.display='none';
+        //document.querySelector('.questions-rendered').style.display='none';
+        //highScoreEl.textContent = "YOUR SCORE IS " + secondsLeft;
+    }
+}, 1000);
+  }; */
+
 var button = document.getElementById("start-quiz");
 button.addEventListener("click", function(){
-  counterClock();
-  insertContent();
-  hideBtn();
+  start();
+  button.style.display = "none";
+  document.getElementById("intro").style.display = "none";
+  insertContent(questionIndex);
 });
 
-function hideBtn() {
-  document.getElementById('intro').classList.add('hide');
-  };
+var questionIndex = 0;
 
-  function insertContent() {
-    var quizQuestions = document.getElementById("show-question");
-    var quizChoices = document.getElementsByClassName("question");
-    for (var i = 0; i < questions.length; i++) {
-      quizQuestions.innerHTML += ('<div class = "question">' + questions[i].title + '</div>');
-      for (var j = 0; j < questions[i].choices.length; j++) {
-        quizChoices[i].innerHTML += '<button>' + questions[i].choices[j] + '</button>';
-      };
+function insertContent(){
+    
+    questionsEl.textContent = "";
+    var question = questions[questionIndex];
+    var questionDiv = document.createElement("div");
+    var questionText = document.createElement("h2");
+    questionText.textContent = question.title;
+    questionDiv.appendChild(questionText);
+    
+    for (var i=0; i < question.choices.length; i++) {
+        var userChoices = document.createElement("button");
+        userChoices.textContent = question.choices[i];
+        userChoices.setAttribute("class", "btn btn-primary text-left");
+        userChoices.style.display = "block";
+        userChoices.addEventListener("click", function(e) {
+            var choiceClicked = (e.target.innerHTML);
+            
+            if(choiceClicked === questions[questionIndex].answer){
+                alert("Correct!");
+                insertContent(questionIndex++);
+            }
+            else{
+                alert("Wrong!");
+                insertContent(questionIndex++);
+                counter -= 10;
+            }
+            
+        });
+        if (questionIndex == questions.length) {
+            clearInterval(timer);
+            //document.querySelector('.Score').style.display='block';
+            //document.querySelector(".Time").style.display='none';
+            //highScoreEl.textContent = "YOUR SCORE IS " + secondsLeft;
+            //return;
+        };
+        questionDiv.appendChild(userChoices);
     };
-  };
-
-function counterClock() {
-  var clock = document.getElementById("display-countdown");
-  var counter = 75;
-  var timer = setInterval(countdown, 1000);
-  function countdown() {
-    if(counter < 0){
-    clearInterval(timer);
-   } else {	
-    clock.innerHTML = "Time: " + counter + " seconds left";
-    counter--;
-   };
-  };
-}
-
-
-/*function insertContent(){
-    var fullQuiz = document.getElementById('quizBody');
-    for (var i = 0; i < questions.length; i++) {
-      //var node = document.createElement("div");
-      fullQuiz.innerHTML += ('<div class="question'+(i+1)+'">' + questions[i].title +'</div>');
-      for (var j = 0; j < questions[i].choices.length; j++) {
-        quizQuestion = document.getElementsByClassName('question' + (i+1));
-        console.log(quizQuestion[0]);
-        quizQuestion[0].innerHTML += '<button>'+ questions[i].choices[j]+'</button>';
-      }
-    }
-  }
-
-  ​
-  function showHideQuiz(event){
-    question1 = document.getElementsByClassName(question1);
-    if(document.getElementsByClassName(question1)){
-      question1.style.display = "block";
-    } else {
-      //style.display = "none";
-    }
-    event.preventDefault();
-  } */
+    questionsEl.appendChild(questionDiv);
+};
