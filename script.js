@@ -46,7 +46,7 @@ function insertContent(){
     questionsEl.textContent = "";
     var question = questions[questionIndex];
     var questionDiv = document.createElement("div");
-    var questionText = document.createElement("h2");
+    var questionText = document.createElement("h4");
     questionText.textContent = question.title;
     questionDiv.appendChild(questionText);
     

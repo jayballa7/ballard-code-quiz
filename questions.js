@@ -30,7 +30,7 @@ var questions = [
       answer: "c. Both a and b"
     },
     {
-      title: "Which javascript method calls a function for each element in the array?",
+      title: "Which Javascript method calls a function for each element in the array?",
       choices: ["a. while()", "b. loop()", "c. forEach()", "d. None of the above"],
       answer: "c. forEach()"
     },
