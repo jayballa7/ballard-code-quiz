@@ -32,7 +32,7 @@ List of features ready:
 ## Status
 There are still a few things to fix:
 * The timer is delayed and does not start right away.
-* The last question isn't displayed (I believe the issue is line 78 of script.js).
+* The last question isn't displayed (I believe the issue is line 73 of script.js).
 * Due to the previous issue, the score will be off by 10 points, however the high score will be correct.
 
 ## Inspiration
