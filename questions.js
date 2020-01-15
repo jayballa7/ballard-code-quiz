@@ -39,5 +39,9 @@ var questions = [
       choices: ["a. For Loop", "b. Else Loop", "c. Conditional Loop", "d. While Loop"],
       answer: "d. While Loop"
     },
- 
+    {
+    title: "Test",
+      choices: ["a. Test 1", "b. Test 2", "c. Test 3", "d. Test 4"],
+      answer: "a. Test 1"
+    }
   ];

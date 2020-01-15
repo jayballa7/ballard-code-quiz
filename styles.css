@@ -17,3 +17,7 @@ footer {
 #display-countdown {
     color: white;
 }
+
+ul {
+    list-style: none; 
+}

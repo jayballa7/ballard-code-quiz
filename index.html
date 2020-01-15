@@ -25,6 +25,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
+                <div class = "homepage">
                 <header>
                     <h1>Code Quiz</h1>
                     <br>
@@ -32,6 +33,19 @@
                   <p id = "intro">Test your coding knowledge with this timed quiz and store your high scores.
                       <br>
                       <br>
+                </div>
+                <div class="scoreboard">
+                    <h1>Done</h1>
+                    <p class="highScore"></p>
+                    Enter Initials: <input type="text" name="Enter Initials" id="initials">
+                    <button id="submit">Submit</button>
+                </div>
+                <div class="highscorePage">
+                    <form id="score-form" method="POST">
+                        <h1>High Scores</h1>
+                        <ul id="scoreList"></ul>
+                    </form>
+                </div>
                       <button type="button" id = "start-quiz" class="btn btn-success">Start Quiz!</button>
                   </p>
 
