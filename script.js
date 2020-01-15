@@ -1,12 +1,13 @@
-var questionsEl = document.getElementById("show-question");
+var questionsEl = document.querySelector("#show-question");
 var counter = 75;
 var score = 0;
-var scoreEl = document.getElementsByClassName("scoreboard");
+var scoreEl = document.querySelector(".scoreboard");
 var highScoreEl = document.querySelector(".highScore");
-var submitBtn = document.getElementById("submit");
+var submitBtn = document.querySelector("#submit");
 var initialInput = document.querySelector("#initials");
 var scoreList = document.querySelector("#scoreList");
 var scoreForm = document.querySelector("#score-form");
+var refresh = document.querySelector("#again");
 var userInitials = [];
 
 //scoreboard is hidden
@@ -27,7 +28,6 @@ function countdown(){
                 //Stop clock
                 clearInterval(timer);
                 document.querySelector(".scoreboard").style.display= "block";
-                document.querySelector("#display-countdown").style.display= "none";
                 document.querySelector("#show-question").style.display="none";
                 highScoreEl.textContent = "Your score is: " + score;
             }
@@ -36,10 +36,9 @@ function countdown(){
 
 var button = document.getElementById("start-quiz");
 button.addEventListener("click", function(){
-  start();
-  document.querySelector(".homepage").style.display='none';
-  button.style.display = "none";
-  document.getElementById("intro").style.display = "none";
+  start(); //start countdown
+  document.querySelector(".homepage").style.display='none';  //hide p
+  button.style.display = "none";  //hide button
   insertContent(questionIndex);
 });
 
@@ -65,11 +64,12 @@ function insertContent(){
             if(choiceClicked === questions[questionIndex].answer){
                 alert("Correct!");
                 insertContent(questionIndex++);
-                score = score + 10;
+                score += 10;
             }
             else{
                 alert("Wrong!");
                 insertContent(questionIndex++);
+                score -= 10;
                 counter -= 10;
             }
             
@@ -78,7 +78,6 @@ function insertContent(){
         if ((questionIndex + 1) == questions.length) {
             clearInterval(timer);
             document.querySelector(".scoreboard").style.display='block';
-            document.querySelector("#display-countdown").style.display='none';
             document.querySelector("#show-question").style.display='none';
             highScoreEl.textContent = "Your score is: " + score;
         };
@@ -150,4 +149,9 @@ scoreList.addEventListener("click", function(event){
         showScores();
     }
 });
+
+refresh.addEventListener("click", function(){
+    location.reload();
+});
+
 initialize();
