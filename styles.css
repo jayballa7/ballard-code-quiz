@@ -5,6 +5,15 @@ body, wrapper {
     text-align: center;
 }
 
+#intro {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+#show-question {
+    margin-top: 2%;
+}
+
 footer {
     text-align:center;
 }

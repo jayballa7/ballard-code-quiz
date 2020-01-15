@@ -24,6 +24,7 @@ List of features ready:
 * User clicks button to start the quiz. 
 * There are multiple choice questions and a countdown timer. After choice is made, the next question appears.
 * Each correct answer adds to score. Each incorrect answer detracts from score and takes time off the clock.
+* Message of "Correct!" or "Incorrect!" displays once the user chooses the answer.
 * When the clock runs out or the user has answered all of the questions, the score and an input box appear to enter initials.
 * When the submit button is clicked, the user can view all of their high scores (stored using local storage).
 * The user has the option to take the quiz again. Each time their score will add to the high scores list. They can also choose to clear each score.
