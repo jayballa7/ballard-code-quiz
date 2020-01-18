@@ -34,6 +34,8 @@ Mostly complete. I would like to include these things:
 * More quiz questions.
 * More quizzes focusing on different areas.
 * Complex scoring system based on difficulty of questions.
+* Add a minimum score of zero (no negative numbers).
+* Add to my portfolio.
 
 ## Inspiration
 Thanks to my tutor who helped me so much with this homework.
