@@ -30,10 +30,10 @@ List of features ready:
 * The user has the option to take the quiz again. Each time their score will add to the high scores list. They can also choose to clear each score.
 
 ## Status
-There are still a few things to fix:
-* The timer is delayed and does not start right away.
-* The last question isn't displayed (I believe the issue is line 73 of script.js).
-* Due to the previous issue, the score will be off by 10 points, however the high score will be correct.
+Mostly complete. I would like to include these things:
+* More quiz questions.
+* More quizzes focusing on different areas.
+* Complex scoring system based on difficulty of questions.
 
 ## Inspiration
 Thanks to my tutor who helped me so much with this homework.

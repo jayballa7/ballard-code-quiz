@@ -1,8 +1,12 @@
 body, wrapper {
     min-height:100vh;
-    height:500px;
     background-color: #f5f7b5;
     text-align: center;
+    word-wrap: break-word;
+}
+
+main {
+    margin: 8%;
 }
 
 #intro {
@@ -11,7 +15,8 @@ body, wrapper {
 }
 
 #show-question {
-    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 footer {
@@ -19,9 +24,37 @@ footer {
 }
 
 .btn {
-    width: 25%;
+    width: 50%;
     margin: auto;
     }
+
+@media screen and (min-width: 0px) and (max-width: 900px) {
+.btn {
+    width: 100%;
+    margin: auto;
+    }
+}
+#start-quiz {
+    width: 15%;
+}
+ 
+@media screen and (min-width: 0px) and (max-width: 900px) {
+    #start-quiz {
+     width: 50%;
+    margin: auto;
+    }
+}
+
+#again {
+    width: 15%;
+}
+ 
+@media screen and (min-width: 0px) and (max-width: 800px) {
+    #again {
+     width: 50%;
+    margin: auto;
+    }
+}
 
 #display-countdown {
     color: white;
@@ -29,4 +62,9 @@ footer {
 
 ul {
     list-style: none; 
+}
+
+#result {
+    font-weight: bold;
+    font-size: 2em;
 }

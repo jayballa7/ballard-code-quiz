@@ -26,7 +26,7 @@ function countdown(){
             scoreEl.style.display= "block";
             displayTimer.style.display="none";
             questionsEl.style.display = "none";
-            highScoreEl.textContent = "Your score is: " + score;
+            highScoreEl.textContent = "You scored " + score + " points!";
             resultEl.style.display = "none";
         }
     }, 1000);
@@ -49,7 +49,7 @@ function insertContent(){
     var questionText = document.createElement("h4");
     questionText.textContent = question.title;
     questionDiv.appendChild(questionText);
-    
+
     for (var i=0; i < question.choices.length; i++) {
         var userChoices = document.createElement("button");
         userChoices.textContent = question.choices[i];
@@ -58,29 +58,43 @@ function insertContent(){
         userChoices.addEventListener("click", function(e) {
             var choiceClicked = (e.target.innerHTML);
             if(choiceClicked === questions[questionIndex].answer){
-                insertContent(questionIndex++);
                 score += 10;
+                resultEl.style.color = "green";
                 resultEl.innerHTML = "Correct!";
             }
             else{
-                insertContent(questionIndex++);
                 score -= 10;
                 counter -= 10;
+                resultEl.style.color = "red";
                 resultEl.innerHTML = "Incorrect!";
-            }           
+            }
+            if((questionIndex + 1) != questions.length)
+            {
+                insertContent(questionIndex++);
+            }
+            else
+            {
+                clearInterval(timer);
+                setTimeout(function() {
+                    scoreEl.style.display="block";
+                    questionsEl.style.display="none";
+                    highScoreEl.textContent = "You scored " + score + " points!";
+                    resultEl.style.display = "none";
+                }, 1000);
+            }
+
+
         });
-     
-        if ((questionIndex + 1) == questions.length) {
-            clearInterval(timer);
-            scoreEl.style.display="block";
-            questionsEl.style.display="none";
-            highScoreEl.textContent = "Your score is: " + score;
-            resultEl.style.display = "none";
-        };
+
         questionDiv.appendChild(userChoices);
     };
-    questionsEl.appendChild(questionDiv);
+    setTimeout(function() {
+        questionsEl.appendChild(questionDiv);
+        resultEl.innerHTML = "";
+    }, 1000);
+
 };
+
 
 function showScores(){
     scoreList.innerHTML = "";

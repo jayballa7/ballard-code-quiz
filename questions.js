@@ -40,8 +40,13 @@ var questions = [
       answer: "d. While Loop"
     },
     {
-    title: "Test",
-      choices: ["a. Test 1", "b. Test 2", "c. Test 3", "d. Test 4"],
-      answer: "a. Test 1"
-    }
+      title: "Change the text of a p tag with the id 'demo'.",
+      choices: ["a. document.getElementById('demo').innerHTML = 'Hello!'", "b. document.getElementsByClassName('demo').innerHTML='Hello!'", "c. document.getElementsById('demo').innerHTML = 'Hello!'", "d. document.getElementById('demo').innerText = 'Hello!'"],
+      answer: "a. document.getElementById('demo').innerHTML = 'Hello!'",
+    },
+      {
+      title: "What is the data type of var firstName = 'John'?",
+      choices: ["a. Boolean", "b. Number", "c. Array", "d. String"],
+      answer: "d. String"
+    }, 
   ];
